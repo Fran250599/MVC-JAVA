@@ -23,8 +23,6 @@ public class ActorWindow extends JFrame {
     private JButton btnExit;
     private JPanel windowPanel;
 
-    PrincipalWindow principalWindow;
-
     //-------------------------------
 
     public ActorWindow() {
@@ -38,21 +36,7 @@ public class ActorWindow extends JFrame {
         setButtons();
         createTable();
 
-        //create button listeners
-        AddButtonListener addAction = new AddButtonListener();
-        this.btnAdd.addActionListener(addAction);
-
-        SearchButtonListener searchAction = new SearchButtonListener();
-        this.btnSearch.addActionListener(searchAction);
-
-        ListButtonListener listAction = new ListButtonListener();
-        this.btnList.addActionListener(listAction);
-
-        UpdateButtonListener updateAction = new UpdateButtonListener();
-        this.btnUpdate.addActionListener(updateAction);
-
-        ExitButtonListener exitAction = new ExitButtonListener();
-        this.btnExit.addActionListener(exitAction);
+        setVisible(true);
     }
 
     public String getTxtID() {
@@ -67,17 +51,21 @@ public class ActorWindow extends JFrame {
         return txtAwards.getText();
     }
 
-    public void addListener(ActionListener action) {
-        btnAdd.addActionListener(action);
-        btnExit.addActionListener(action);
-        btnList.addActionListener(action);
-        btnSearch.addActionListener(action);
-        btnUpdate.addActionListener(action);
-    }
-
     public void setButtons() {
+        AddButtonListener addAction = new AddButtonListener();
+        this.btnAdd.addActionListener(addAction);
 
+        SearchButtonListener searchAction = new SearchButtonListener();
+        this.btnSearch.addActionListener(searchAction);
 
+        ListButtonListener listAction = new ListButtonListener();
+        this.btnList.addActionListener(listAction);
+
+        UpdateButtonListener updateAction = new UpdateButtonListener();
+        this.btnUpdate.addActionListener(updateAction);
+
+        ExitButtonListener exitAction = new ExitButtonListener();
+        this.btnExit.addActionListener(exitAction);
     }
 
     public void createTable() {

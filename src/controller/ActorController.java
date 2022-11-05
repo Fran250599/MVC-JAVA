@@ -8,16 +8,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ActorController {
-    //-------------------------------
-    private ActorWindow actorWindow;
-    private Utilities utilities;
 
-    //-------------------------------
 
     public ActorController() {
+    }
 
-        this.actorWindow = new ActorWindow();
-        this.actorWindow.setVisible(true);
+    public void addActor() {
+
+    }
+
+    public void updateActor() {
+
+    }
+
+    public void deleteActor() {
+
+    }
+
+    public void ListActors() {
 
     }
 }

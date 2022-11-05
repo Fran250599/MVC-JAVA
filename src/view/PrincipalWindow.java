@@ -62,7 +62,7 @@ public class PrincipalWindow extends JFrame {
             switch (valor) {
                 case 1:
                     //ACTOR
-                    ActorController actorController = new ActorController();
+                    ActorWindow actorWindow = new ActorWindow();
                     dispose();
 
                     break;
