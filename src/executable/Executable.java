@@ -8,8 +8,10 @@ public class Executable {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                PrincipalController principalController= new PrincipalController();
+                PrincipalController principalController = new PrincipalController();
             }
         });
     }
+
+    
 }
