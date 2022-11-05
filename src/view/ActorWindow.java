@@ -1,10 +1,14 @@
 package view;
 
+import controller.ActorController;
+import controller.PrincipalController;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ActorWindow extends JFrame{
+public class ActorWindow extends JFrame {
 
     //-------------------------------
     private JTextField txtID;
@@ -19,18 +23,36 @@ public class ActorWindow extends JFrame{
     private JButton btnExit;
     private JPanel windowPanel;
 
+    PrincipalWindow principalWindow;
+
     //-------------------------------
 
-    public ActorWindow(){
+    public ActorWindow() {
 
         setContentPane(windowPanel);
         setTitle("Administrador Actores");
-        setSize(900,500);
+        setSize(900, 500);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
         setButtons();
         createTable();
+
+        //create button listeners
+        AddButtonListener addAction = new AddButtonListener();
+        this.btnAdd.addActionListener(addAction);
+
+        SearchButtonListener searchAction = new SearchButtonListener();
+        this.btnSearch.addActionListener(searchAction);
+
+        ListButtonListener listAction = new ListButtonListener();
+        this.btnList.addActionListener(listAction);
+
+        UpdateButtonListener updateAction = new UpdateButtonListener();
+        this.btnUpdate.addActionListener(updateAction);
+
+        ExitButtonListener exitAction = new ExitButtonListener();
+        this.btnExit.addActionListener(exitAction);
     }
 
     public String getTxtID() {
@@ -45,7 +67,7 @@ public class ActorWindow extends JFrame{
         return txtAwards.getText();
     }
 
-    public void addListener(ActionListener action){
+    public void addListener(ActionListener action) {
         btnAdd.addActionListener(action);
         btnExit.addActionListener(action);
         btnList.addActionListener(action);
@@ -54,31 +76,81 @@ public class ActorWindow extends JFrame{
     }
 
     public void setButtons() {
-        btnAdd.setActionCommand("1");
-        btnExit.setActionCommand("2");
-        btnList.setActionCommand("3");
-        btnSearch.setActionCommand("4");
-        btnUpdate.setActionCommand("5");
+
+
     }
 
-    public void createTable(){
+    public void createTable() {
         Object data[][] = {
-                {1,"Matt Damon", 10},
+                {1, "Matt Damon", 10},
                 {},
                 {}
         };
         dataTable.setModel(new DefaultTableModel(
                 data,
-                new String[]{"Id","Nombre","Premios"}
+                new String[]{"Id", "Nombre", "Premios"}
         ));
     }
 
-    public void displayErrorMessage(String errorMessage){
+    public void displayErrorMessage(String errorMessage) {
         JOptionPane.showMessageDialog(windowPanel, errorMessage, " WARNING ERROR", JOptionPane.ERROR_MESSAGE);
     }
 
-    public void displayMessage(String message){
+    public void displayMessage(String message) {
         JOptionPane.showMessageDialog(windowPanel, message);
     }
 
+    //--------------------------------------------------------------------------
+    private class AddButtonListener implements ActionListener {
+
+        AddButtonListener() {
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Ola Cami TE AMOOOOOOOOOOOOOOOOOOOOO");
+        }
+    }
+
+    private class SearchButtonListener implements ActionListener {
+
+        SearchButtonListener() {
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Toy buscando :D");
+        }
+    }
+
+    private class ListButtonListener implements ActionListener {
+
+        ListButtonListener() {
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Toy listando :D");
+        }
+    }
+
+    private class UpdateButtonListener implements ActionListener {
+
+        UpdateButtonListener() {
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Toy actualizando :D");
+        }
+    }
+
+    private class ExitButtonListener implements ActionListener {
+
+        ExitButtonListener() {
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            PrincipalWindow principalWindow = new PrincipalWindow();
+            dispose();
+        }
+    }
 }
+
+

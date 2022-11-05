@@ -1,6 +1,7 @@
 package executable;
 
 import controller.PrincipalController;
+import view.PrincipalWindow;
 
 public class Executable {
 
@@ -8,10 +9,10 @@ public class Executable {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                PrincipalController principalController = new PrincipalController();
+                PrincipalWindow principalWindow = new PrincipalWindow();
             }
         });
     }
 
-    
+
 }
